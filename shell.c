@@ -5,11 +5,17 @@
 #include <assert.h>
 #include <sys/wait.h>
 int main (int argc, char* argv[]) {
+	char* valor[1];
+	while(1) {
 		pid_t pid;
 		int estado;
-		char* valor[1];
-		printf("Escriba\n");
+		//char* valor[1];
+		printf("-->");
 		scanf("%s", valor[0] );
+		//exit para salir
+		if(strcmp(valor[0], "exit") == 0) {
+			break;
+		}
 		pid = fork();
 		assert(pid >= 0);
 
@@ -39,7 +45,7 @@ int main (int argc, char* argv[]) {
 			}
 
 		}
-
+	}
 		return 0;
 }
 
