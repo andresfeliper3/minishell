@@ -7,7 +7,7 @@
 int main (int argc, char* argv[]) {
 		pid_t pid;
 		int estado;
-		char* valor[];
+		char* valor[1];
 		printf("Escriba\n");
 		scanf("%s", valor[0] );
 		pid = fork();
