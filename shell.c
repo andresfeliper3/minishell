@@ -15,7 +15,6 @@ int main (int argc, char* argv[]) {
 
 		//hijo
 		if(pid == 0) {
-			printf("Soy el hijo");
 			char *cmd[1];
 			int i;
 			for(i = 0; i < 1; i++) {
@@ -30,10 +29,17 @@ int main (int argc, char* argv[]) {
 		else {
 			wait(&estado);
 			if(WIFEXITED(estado)) { //valido si el hijo sale de manera natural no eliminado por señal
-				printf(":)  %d\n", WEXITSTATUS(estado));
+				if(WEXITSTATUS(estado)) { // Retorna 0 si salió con exito
+					printf(":(\n");
+				} 
+				else {	
+					printf(":)\n"); //El if eval�a 0 (exito) como false
+				}
+				
 			}
+
 		}
 
-		
+		return 0;
 }
 
