@@ -21,12 +21,12 @@ int main(int argc, char* argv[]){
 	
 	while( !(str[k] == '\0') ){
 			//ls    -l
-	   if( str[k] != ' '){
+	   if( str[k] != ' ' && str[k] != '\r' && str[k] != '\n'){
 		    estado = false;
 		    args[i][j] = str[k];
 	    	    j++;		 
 	   }else{
-	   	if (estado == false){
+	   	if (estado == false && str[k] == ' '){
 			i++;
 			j = 0;
 			estado = true;
@@ -35,35 +35,16 @@ int main(int argc, char* argv[]){
 	   k++;
 	
 	}
-	printf("valor de i final %d\n", i);
-	printf("Fila 1 de args %s\n", args[1]);
-	printf("Fila 2 de args %s\n ", args[2]);
 	char *cmd[i+1];
 	for(int p = 0; p < i; p++){
 		cmd[p] = strdup(args[p+1]);
 	}
 	
 	cmd[i] = NULL;	
-	
-	printf("fila 0 de cmd %s\n", cmd[0]);
-	printf("Fila 1 de cmd %s\n", cmd[1]);
-	printf("Fila 2  de cmd %s\n", cmd[2]);
 
 	execvp(cmd[0], cmd);
 	perror("Return from execvp() not expected");
 	exit(EXIT_FAILURE);
-	/*
-	char *myargs[3];
-
-	myargs[0] = strdup("ls");
-	myargs[1] = strdup("-l");
-	myargs[2] = NULL;
-
-	execvp(myargs[0], myargs);
-	perror("Return from execvp() not expected");
-	exit(EXIT_FAILURE);
-*/
-	
 	
 	return 0;
 }
