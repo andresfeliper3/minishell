@@ -1,6 +1,0 @@
-total 44
--rwxrwxrwx 1 juanr1004 juanr1004    11 Sep 13 20:20 README.md
--rwxrwxrwx 1 juanr1004 juanr1004     0 Sep 19 11:09 ejemplo.txt
--rwxrwxrwx 1 juanr1004 juanr1004 16960 Sep 13 21:31 practica
--rwxrwxrwx 1 juanr1004 juanr1004 17280 Sep 19 11:08 shell
--rwxrwxrwx 1 juanr1004 juanr1004  2333 Sep 19 11:08 shell.c
